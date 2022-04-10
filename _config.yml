@@ -104,4 +104,4 @@ theme: landscape
 deploy:
   type: git
   repo: https://github.com/austin9109/austin9109.github.io.git
-  branch: master
+  branch: main
