@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://i.imgur.com/1eT71zY.jpg">
 <meta property="og:image" content="https://i.imgur.com/dvVdSfI.jpg">
 <meta property="article:published_time" content="2022-05-08T15:07:39.373Z">
-<meta property="article:modified_time" content="2022-05-10T08:50:33.927Z">
+<meta property="article:modified_time" content="2022-05-10T11:05:35.707Z">
 <meta property="article:author" content="Austin Yang">
 <meta property="article:tag" content="Robotics, ROS2, Game">
 <meta name="twitter:card" content="summary">
@@ -114,10 +114,10 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在去年底我入手了 ipad pro 第五代，一直想利用他來做點新鮮事，加上陸陸續續都有在寫些技術類型的小筆記，可以將自己的一些學習經驗或是其他跟工程相關的知識統整起來分享其實是一件很酷的事情，在訓練自己統整知識能力的同時順道練習寫作文筆(甚至可以裝逼 XD)，因此近期一直有想要撰寫個人部落格的念頭，</p>
-<p>在研究有什麼好用的架站平台時，意外發現 <a target="_blank" rel="noopener" href="https://hexo.io/zh-tw/"><strong>Hexo</strong></a> 這個部落格框架，仔細研究一下發現居然還是台灣人寫的！當然二話不說選了很符合工程師口味的他來當部落格平台。但是由於框架的限制，在平板電腦上並不能很直接的在這個平台上開發，為了完成 <strong>能同時在筆電與平板上，透過 Hexo 來進行部落格開發</strong>這個願景，陸陸續續查了很多相關資料，但很多資料其實已經過時，導致走了很多歪路，也才有了這篇文章誕生的契機，將它獻給我的部落格作為第一篇文章再適合不過了。因此<strong>這篇文章會完全照著下述的流程撰寫並部屬完成</strong>。雖然說步驟有點繁瑣，但在過程中學習到很多新的知識，以下廢話不多說，快來看看怎麼辦到的！</p>
+<p>在研究有什麼好用的架站平台時，意外發現 <a target="_blank" rel="noopener" href="https://hexo.io/zh-tw/"><strong>Hexo</strong></a> 這個部落格框架，仔細研究一下發現居然還是台灣人寫的！當然二話不說選了很符合工程師口味的他來當部落格平台。但是由於框架的限制，在平板電腦上並不能很直接的在這個平台上開發，為了完成 <strong>在平板上也能透過 Hexo 來進行部落格開發</strong>這個願景，陸陸續續查了很多相關資料，但很多資料其實已經過時，導致走了很多歪路，也才有了這篇文章誕生的契機，將它獻給我的部落格作為第一篇文章再適合不過了。因此<strong>這篇文章會完全照著下述的流程撰寫並部屬完成</strong>。雖然說步驟有點繁瑣，但在過程中學習到很多新的知識，以下廢話不多說，快來看看怎麼辦到的！</p>
 <span id="more"></span>
 
-<h2 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h2><p>要完成在平板上從撰寫到部屬在<strong>Hexo</strong>上一條龍流程，需要準備以下東西：</p>
+<h2 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h2><p>要完成在平板上從撰寫到部屬在<strong>Hexo</strong>上一條龍流程，需要準備以下東西來打造開發環境：</p>
 <ol>
 <li>一個 Github 帳號，如果對 github 有一定程度了解會更好。</li>
 <li>Google 雲端平台 (GCP) 帳戶申請</li>
@@ -136,14 +136,14 @@
 </br>
 </br>
 
-<p>這裡我們會用到的工具主要有幾個: <strong>GCP</strong>、<strong>Github</strong>、<strong>Hexo</strong>、<strong>Code Server</strong>。這邊簡單說明一下在整個流程中上面提到的那些工具所扮演的角色:</p>
-<h4 id="1-Github"><a href="#1-Github" class="headerlink" title="1. Github"></a>1. Github</h4><p>部落格需要有個網路空間掛載撰寫好的文章，別人才能夠透過網址看見他們，而 Hexo 在這當中扮演的角色是一個框架，他幫你把打好了的文章變成可以載網頁上顯示的語言內容，並且推送到網路空間去。自從 Github 推出 <a target="_blank" rel="noopener" href="https://pages.github.com/"><strong>Github Page</strong></a> 服務後很顯然這是一個作為網路空間的好選擇。</p>
+<p>這裡我們會用到的工具主要有幾個: <strong>GCP</strong>、<strong>Github</strong>、<strong>Hexo</strong>、<strong>Code Server</strong>，這邊簡單說明一下在整個流程中上面提到的那些工具所扮演的角色:</p>
+<h4 id="1-Github"><a href="#1-Github" class="headerlink" title="1. Github"></a>1. Github</h4><p>部落格需要有個網路空間掛載撰寫好的文章，別人才能夠透過網址看見他們，前面提到的 Hexo 在這當中扮演的角色比較像是一個框架，他幫你把打好了的文章變成可以載網頁上顯示的語言內容，並且推送到網路空間去。自從 Github 推出 <a target="_blank" rel="noopener" href="https://pages.github.com/"><strong>Github Page</strong></a> 服務後很顯然這是一個作為網路空間的好選擇。</p>
 <p>此外，Hexo 在產出部落格的途中會產生很多網頁檔案，這些檔案相當於搭建起部落格的骨架，一旦這些檔案遺失了相當於部落格直接死去，因此最好找個方法能夠備份他們。而對工程師來說，最好用的源碼備份工具是什麼？沒錯～當然是 Github ！因此使用 <strong>Github</strong> 能夠幫我們完成<strong>建立網路空間與存放部落格檔案</strong>兩大目標。</p>
 <h4 id="2-GCP"><a href="#2-GCP" class="headerlink" title="2. GCP"></a>2. GCP</h4><p>Hexo 大部分的內容是用 <strong>Node.js</strong> 撰寫，要使用它必須要有能夠運行 <strong>Node</strong> 的環境，但在平板上辦不到這件事，加上我們需要能在平板上使用 Github 相關功能(推送網頁到 Page 上)，平版上支援這類型功能的程式大多要錢，因此最後想到的解決辦法是透過架設 <strong>VM</strong> (虛擬機)來處理這些平板辦不到的事。<strong>GCP</strong> 在這部分很友善的推出<strong>滿足某些條件下免費</strong>的方案，因此最後就選擇他了。</p>
 <h4 id="3-Code-Server"><a href="#3-Code-Server" class="headerlink" title="3. Code Server"></a>3. Code Server</h4><p>在 VM 上開發固然可以解決針對平板的那些痛點，但是由於虛擬機沒有圖形化介面，想要臨時在虛擬上修正網頁內容或是 Hexo 設定只能打開 <code>vim</code>去修改。<a target="_blank" rel="noopener" href="https://code.visualstudio.com/"><strong>VS-Code</strong></a> 是微軟推出的一款強大的程式碼編輯工具，在找資料的過程中偶然發現有 <strong>Code-server</strong> 這個神奇的東西，能夠將 VS 架設在虛擬機上，我們可以很方便的透過外部 IP 連進我們架好的 Server ，快速修改 Hexo 中的文件。</p>
-<p>因此就上述內容，整體思路具體為 <strong>將 Hexo 架設在 VM 上，使用平板撰寫好 Markdown 的文章，並將打好的文章透過 Code-Server 複製進 VM 中，最後再透過 Hexo 指令將生成好的靜態網頁部屬到 Github Page 上，順便養成好習慣將 Hexo 備份</strong>。(浩大工程)</p>
-<h2 id="將-Hexo-架設在-GCP-上"><a href="#將-Hexo-架設在-GCP-上" class="headerlink" title="將 Hexo 架設在 GCP 上"></a>將 Hexo 架設在 GCP 上</h2><p>Hexo 的基本觀念這邊就不多說，網路上有很多實用的文章，我自己是參考<a target="_blank" rel="noopener" href="https://ed521.github.io/2019/07/hexo-install/">Mario</a><br>大的文章，裡面都講解得很清楚，這邊重點著重在如何將 Hexo 部署在 GCP 上以及會遇到的問題。</p>
-<h3 id="1-申辦-GCP-以及-VM"><a href="#1-申辦-GCP-以及-VM" class="headerlink" title="1. 申辦 GCP 以及 VM"></a>1. 申辦 GCP 以及 VM</h3><p>首先利用手邊有的 Google 帳號去申請開發人員，申請好之後會送幾千塊，基本上是用不完的。接著我們前往 Google 免費計畫頁面，可以看到當到免費方案的申請規則如下:</p>
+<h5 id="補充-後來想了一下應該可以嘗試在-VM-上安裝-Hexo-後台管理工具，直接將-Hexo-的文檔透過後台工具直接貼到文章中應該也是可行的做法，而且也可以較貼近的顯示文章最後顯示內容，不過目前還沒做較多涉略，之後有空再來研究，使用-VSCode-的體驗還是不錯的。"><a href="#補充-後來想了一下應該可以嘗試在-VM-上安裝-Hexo-後台管理工具，直接將-Hexo-的文檔透過後台工具直接貼到文章中應該也是可行的做法，而且也可以較貼近的顯示文章最後顯示內容，不過目前還沒做較多涉略，之後有空再來研究，使用-VSCode-的體驗還是不錯的。" class="headerlink" title="補充: 後來想了一下應該可以嘗試在 VM 上安裝 Hexo 後台管理工具，直接將 Hexo 的文檔透過後台工具直接貼到文章中應該也是可行的做法，而且也可以較貼近的顯示文章最後顯示內容，不過目前還沒做較多涉略，之後有空再來研究，使用 VSCode 的體驗還是不錯的。"></a>補充: 後來想了一下應該可以嘗試在 VM 上安裝 Hexo 後台管理工具，直接將 Hexo 的文檔透過後台工具直接貼到文章中應該也是可行的做法，而且也可以較貼近的顯示文章最後顯示內容，不過目前還沒做較多涉略，之後有空再來研究，使用 VSCode 的體驗還是不錯的。</h5><p>因此就上述內容，整體思路具體為 <strong>將 Hexo 架設在 VM 上，使用平板撰寫好 Markdown 的文章，並將打好的文章透過 Code-Server 複製進 VM 中，最後再透過 Hexo 指令將生成好的靜態網頁部屬到 Github Page 上，順便養成好習慣將 Hexo 備份</strong>。(浩大工程)</p>
+<h2 id="將-Hexo-架設在-GCP-上"><a href="#將-Hexo-架設在-GCP-上" class="headerlink" title="將 Hexo 架設在 GCP 上"></a>將 Hexo 架設在 GCP 上</h2><p>Hexo 的基本觀念這邊就不多說，網路上有很多實用的文章，我自己是參考<a target="_blank" rel="noopener" href="https://ed521.github.io/2019/07/hexo-install/">Mario</a>大的文章，裡面都講解得很清楚，這邊重點著重在如何將 Hexo 部署在 GCP 上以及過程中會遇到的問題。</p>
+<h3 id="1-申辦-GCP-以及-VM"><a href="#1-申辦-GCP-以及-VM" class="headerlink" title="1. 申辦 GCP 以及 VM"></a>1. 申辦 GCP 以及 VM</h3><p>首先利用手邊有的 Google 帳號去<a target="_blank" rel="noopener" href="https://cloud.google.com/gcp/?hl=zh-tw&utm_source=google&utm_medium=cpc&utm_campaign=japac-TW-all-zh-dr-bkws-all-all-trial-e-dr-1009882&utm_content=text-ad-none-none-DEV_c-CRE_540744604695-ADGP_Hybrid%20%7C%20BKWS%20-%20EXA%20%7C%20Txt%20~%20GCP%20~%20General_cloud%20-%20platform-KWID_43700061092164566-aud-1644542956068:kwd-87853815&userloc_9040380-network_g&utm_term=KW_gcp&gclid=Cj0KCQjwmuiTBhDoARIsAPiv6L98_IYHQHdI-RUuFZjWzllcjbrDXfpYFK52CmHfSWCAhHqp53u8MYQaAqhYEALw_wcB&gclsrc=aw.ds">申請開發人員</a>，申請好之後會送幾千塊，基本上是用不完的。接著我們前往 Google 免費計畫頁面，可以看到免費方案的申請規則如下(文章撰寫時間為20220507):</p>
 <ul>
 <li>在以下其中一個美國地區每月 1 個非先佔 e2-micro VM 執行個體：<ul>
 <li>奧勒岡州：us-west1</li>
@@ -199,8 +199,8 @@
 </center>
 
 
-<h3 id="2-開通防火牆序列埠以及外部靜止-IP"><a href="#2-開通防火牆序列埠以及外部靜止-IP" class="headerlink" title="2. 開通防火牆序列埠以及外部靜止 IP"></a>2. 開通防火牆序列埠以及外部靜止 IP</h3><p>架設好 VM 後，我們還需要做幾點設定才能夠從外部設備透過網路的方式連進我們的伺服器，一個是建立防火牆規則，另一個則是新增靜止 IP。</p>
-<p>VM 默認的幾個序列埠都有使用對象，若有新的連線需求需要自己新增。打開防火牆設定 -&gt; 建立防火牆規則，來源選擇 <code>IPV4</code>，序列埠選擇 <code>TCP</code> 並打上自己的埠碼(這裡使用 8080 為例)。</p>
+<h3 id="2-開通防火牆序列埠以及外部靜止-IP"><a href="#2-開通防火牆序列埠以及外部靜止-IP" class="headerlink" title="2. 開通防火牆序列埠以及外部靜止 IP"></a>2. 開通防火牆序列埠以及外部靜止 IP</h3><p>架設好 VM 後，我們還需要做幾點設定才能夠從外部設備透過網路的方式連進我們的伺服器，一是<strong>建立防火牆規則</strong>，二是<strong>新增靜止 IP</strong>。</p>
+<h4 id="A-建立防火牆規則"><a href="#A-建立防火牆規則" class="headerlink" title="A. 建立防火牆規則"></a>A. 建立防火牆規則</h4><p>VM 預設的幾個序列埠都有使用對象，若有新的連線需求需要自己新增才可以連線。打開防火牆設定 -&gt; 選擇建立防火牆規則，來源選擇 <code>IPV4</code>，序列埠選擇 <code>TCP</code> 並打上自己的埠碼(這裡使用 <code>8080</code> 為例)。</p>
 <center>
     
 <img src="https://i.imgur.com/BddPdhd.png" width = "700" height = "500" alt=""/>
@@ -216,8 +216,7 @@
 
 </center>
 
-
-<p>接著我們需要一個靜止 IP 才能夠從外部設備連進我們的 VM，前往網路設定 -&gt; 保留外部靜止位址，並將剛建立好的 VM 連接到 此靜止 IP 上。(注意 IP 區域需與 VM 區域一致才連接的到)</p>
+<h4 id="B-建立防火牆規則"><a href="#B-建立防火牆規則" class="headerlink" title="B. 建立防火牆規則"></a>B. 建立防火牆規則</h4><p>當我們想透過遠端連進架設好的伺服器時需要 <code>固定式 IP</code> 才能夠從外部設備找到伺服器。設定方法為前往網路設定 -&gt; 選擇保留外部靜止位址，並將剛建立好的 VM 連接到 此靜止 IP 上。(注意 IP 區域需與 VM 區域一致才連接的到)</p>
 <center>
     
 <img src="https://i.imgur.com/QaWMLw1.png" width = "500" height = "135" alt=""/>
@@ -229,12 +228,18 @@
 
 <center>
     
-<img src="https://i.imgur.com/IxX1u5n.png" width = "400" height = "550" alt=""/>
+<img src="https://i.imgur.com/IxX1u5n.png" width = "400" height = "550" alt="IP區域需與先前新增VM區域一致"/>
 
 </center>
 
 <p>到此完成 GCP 所需的基本設定。</p>
-<h2 id="在-GCP-上架設-Coder-Server-並貼入寫好的文章"><a href="#在-GCP-上架設-Coder-Server-並貼入寫好的文章" class="headerlink" title="在 GCP 上架設 Coder-Server 並貼入寫好的文章"></a>在 GCP 上架設 Coder-Server 並貼入寫好的文章</h2><p>回到 VM 檢視頁面，點選剛建立好的 VM 並選擇透過 SSH 連線:</p>
+<h3 id="3-架設-Hexo-與-GCP-上"><a href="#3-架設-Hexo-與-GCP-上" class="headerlink" title="3. 架設 Hexo 與 GCP 上"></a>3. 架設 Hexo 與 GCP 上</h3><p>這邊其實是最沒有問題的部分，照著大大的文章應該可以順利地安裝，不過我在 <code>GCP</code> 平台上安裝 <code>node</code> 時出現許多相依性問題，後來嘗試改用 <code>nvm</code> 套件來管理 <code>node</code> 版本，有興趣的朋友可以參考這篇文章: <a target="_blank" rel="noopener" href="https://titangene.github.io/article/nvm.html">nvm：安裝、切換不同 Node.js 版本的管理器</a>。</p>
+<p>另外提及的是有些人可能會遇到 <code>SSH</code> 連線斷掉 <code>node</code> 版本每次都要重設的麻煩，後來搜了一些資料發現是沒有設定預設使用 <code>node</code> 的版本，使用以下指令鍵入預設版本後，下次重連打上 <code>node -v</code> 應該就不會再出現找不到 <code>node</code> 的問題了。</p>
+<pre><code>nvm alias default &lt;Your_Version&gt;
+</code></pre>
+</br>
+
+<h2 id="在-GCP-上架設-Coder-Server-並貼入寫好的文章"><a href="#在-GCP-上架設-Coder-Server-並貼入寫好的文章" class="headerlink" title="在 GCP 上架設 Coder-Server 並貼入寫好的文章"></a>在 GCP 上架設 Coder-Server 並貼入寫好的文章</h2><p>架設好 <code>VM</code> 後，我們可以透過幾種方法連到我們的 <code>VM</code> 中，比較快速的做法為直接從 <code>GCP</code> 中的 <code>SSH連線</code> 選項透過小視窗操作，另外也可以在平板上下載如 <a target="_blank" rel="noopener" href="https://termius.com/"><strong>Terminus</strong></a> 的 <code>SSH</code> 連線工具來協助操作。這裡示範直接從 <code>GCP</code> 中連線的方式，回到 <code>VM</code> 檢視頁面，點選剛建立好的 <code>VM</code> 並選擇透過 <code>SSH</code> 連線:</p>
 <center>
     
 <img src="https://i.imgur.com/bgd1H9A.png" width = "350" height = "150" alt=""/>
@@ -243,10 +248,10 @@
 
 <br>
 
-<p>進入 VM 後，使用以下指令安裝 <code>Code-Server</code>:</p>
+<p>進入 <code>VM</code> 後，使用以下指令安裝 <code>Code-Server</code>:</p>
 <pre><code>curl -fsSL https://code-server.dev/install.sh | sh
 </code></pre>
-<p>為了確保他人沒辦法任意進入到我們的 Server 當中，我們可以在啟動 Server 的時候開啟密碼服務選項，這個密碼會存放在 <code>Code-Server</code> 的設定檔中。先進入到設定檔的資料夾底下，並用 vim 指令開啟檔案:</p>
+<p>為了確保他人沒辦法任意進入到我們的 Server 當中，我們可以在啟動 Server 的時候開啟密碼服務選項，這個密碼會存放在 <code>Code-Server</code> 的設定檔中。先進入到設定檔的資料夾底下，並用 <code>vim</code> 指令開啟檔案:</p>
 <pre><code>// 進入含有 config 檔案的資料夾
 cd ~/.config/code-server
 
@@ -256,7 +261,7 @@ sudo vim cnofig.yaml
 <p>在 <code>vim</code> 畫面中，按下 <code>i</code> 開始修改密碼，修改完後按下 <code>ESC</code> 退出編輯，在按下 <code>:wq</code> 保存變更設定。</p>
 <center>
     
-<img src="https://i.imgur.com/1eT71zY.jpg" width = "300" height = "100" alt=""/>
+<img src="https://i.imgur.com/1eT71zY.jpg" width = "300" height = "100" alt="修改連進 Server 所需的密碼"/>
 
 </center>
 
@@ -266,28 +271,38 @@ sudo vim cnofig.yaml
 
 <p>現在我們即可開始運行 <code>Code-Server</code>。為了使 <code>Server</code> 在 <code>VM</code> 視窗關閉後不會自動被終止運行，使用以下指令並在後方加上 <code>&amp;</code> 使之運行在背景中:</p>
 <pre><code>// 指定剛建立好的 port，host 對應防火牆指定 0.0.0.0 並加上 &amp;
-sudo code-server --port 8080 --host 0.0.0.0 &amp;
+code-server --port 8080 --host 0.0.0.0 &amp;
 </code></pre>
 <p>若建立成功，即可回到一般瀏覽器頁面，在網址輸入: <code>http://&#123;your_ip&#125;:8080</code>，並輸入剛設定好的密碼，沒問題的話就可以看到以下頁面，代表 <code>Code-Server</code> 已架設完成。</p>
 <center>
     
-<img src="https://i.imgur.com/dvVdSfI.jpg" width = "450" height = "350" alt=""/>
+<img src="https://i.imgur.com/dvVdSfI.jpg" width = "450" height = "350" alt="Code 首次進入畫面"/>
 
 </center>
 
 <br>
 
-<h2 id="將寫完的文章部署到個人網頁上"><a href="#將寫完的文章部署到個人網頁上" class="headerlink" title="將寫完的文章部署到個人網頁上"></a>將寫完的文章部署到個人網頁上</h2><p>這邊假設 Hexo 都已經建立好的情況下，照著馬力歐大的文章鍵入以下三劍客指令:</p>
+<h2 id="將寫完的文章部署到個人網頁上"><a href="#將寫完的文章部署到個人網頁上" class="headerlink" title="將寫完的文章部署到個人網頁上"></a>將寫完的文章部署到個人網頁上</h2><p>使用平板撰寫完文章後，這邊假設 <code>Hexo</code> 都已經建立好的情況下，我們透過先前建立好的 <code>Code</code> 打開 <code>Hexo</code> 所在資料夾，將剛打完的文章直接拷貝進黨中，若是沒有檔案也可以直接在 <code>Code</code> 中新增一份，接著照著馬力歐大的文章鍵入以下三劍客指令:</p>
 <pre><code>hexo cl
 hexo g
-hexo
+hexo d
 </code></pre>
-<p>就可以看到美美的網站囉~</p>
+<p>都沒有問題的話前往個人網頁就可以看到美美的網站囉~</p>
+<p>※已經初始化完 <code>Hexo</code> 的話小心不要打到 <code>hexo init</code> 指令，否則先前設定好的檔案會被洗掉。</p>
+<h2 id="將-Hexo-部屬檔案備份至-Github-上"><a href="#將-Hexo-部屬檔案備份至-Github-上" class="headerlink" title="將 Hexo 部屬檔案備份至 Github 上"></a>將 Hexo 部屬檔案備份至 Github 上</h2><p>仔細觀看 <code>Hexo</code> 預設生成的檔案中，有 <code>.git</code> 資料夾與 <code>.gitignore</code> 文件，其目的就是讓我們可以同時備份檔案至 <code>Github</code> 上，這樣一來想要部署網站就不限於一定要在原本的開發平台上了，就算今天不是用 <code>GCP</code> 架站同樣也推薦將部屬檔案備份到 <code>Git</code> 上。</p>
+<p>在 <code>GCP</code> 中想要認證與 <code>Github</code> 的連線需要設置 <code>Token</code> 或著是 <code>設定SSH Key</code> 的方式，可以參考這篇文章:<a target="_blank" rel="noopener" href="https://cynthiachuang.github.io/Generating-a-Ssh-Key-and-Adding-It-to-the-Github/">Git 使用 SSH 金鑰與 GitHub 連線</a></p>
+<p>設定完後一樣鍵入三劍客指令:</p>
+<pre><code>git add .
+git commit -m &quot;your commit&quot;
+git push
+</code></pre>
+<p>至此完成在平板上實現 <strong>文章撰寫與部落格架設部屬一條龍流程</strong> ~!!</p>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>自己在嘗試整個流程的時候說實在遇到蠻多問題的，先前沒什麼碰過 <code>SSH</code>、<code>VM</code>、<code>node.js</code> 等等工具或觀念，看文章常常覺得到底在寫三小….， 不過通常越是這樣只要不懼怕的去嘗試，邁出第一步之後就會覺得東西開始漸漸上手，將摸索完的東西統整起來吸收後才能夠變成自己的技能包，最後再透過寫文章的方式將理解呈現出來，看看有沒有認知盲點的同時也幫自己再複習一遍~~</p>
 <h2 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h2><ol>
 <li>請先安裝完 Hexo 後再開始運行 VScode，否則會出現權限問題。</li>
 </ol>
 <h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ul>
-<li>平板打完文章一件上傳與部屬</li>
+<li>平板打完文章一件上傳與部屬(Git action?)</li>
 <li>新增 Hexo 圖床</li>
 <li>修改 Hexo 主題</li>
 <li>新增 Hexo 瀏覽人數功能</li>
@@ -302,7 +317,7 @@ hexo
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://austin9109.github.io/2022/05/08/20220508_blog_env_setup/" data-id="cl2zwxm6h0000l3r5ezev4ovh" data-title="使用 iPad 與 Hexo 開發個人部落格!" class="article-share-link">Share</a>
+      <a data-url="https://austin9109.github.io/2022/05/08/20220508_blog_env_setup/" data-id="cl301r8hk0000ygr5ehtufb1y" data-title="使用 iPad 與 Hexo 開發個人部落格!" class="article-share-link">Share</a>
       
       
       
