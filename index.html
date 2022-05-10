@@ -103,9 +103,9 @@
 
 <center>
     
-<img src="https://i.imgur.com/iQhVD7N.png" width = "500" height = "200" alt="cmake_test_structure"/>
+<img src="https://i.imgur.com/iQhVD7N.png" width = "500" height = "200" alt="Working Flow"/>
 
-</center>center>
+</center>
 
 </br>
 </br>
@@ -141,34 +141,34 @@
 <p>接著從選單中找到 Computer Engine -&gt; VM 執行個體，進入頁面後點擊建立 VM 個體。</p>
 <center>
     
-<img src="https://i.imgur.com/TiEDk03.png" width = "300" height = "300" alt="cmake_test_structure"/>
+<img src="https://i.imgur.com/TiEDk03.png" width = "300" height = "300" alt=""/>
 
-</center>center>
+</center>
 
 <br>
 
 <p>往下瀏覽，找到機器設定與開機磁碟兩個區域，依照前面提到的規格選填裡面的內容，作業系統這邊我們選擇 <strong>Ubuntu 18.04</strong>。</p>
 <center>
     
-<img src="https://i.imgur.com/Z6zi5ep.png" width = "500" height = "300" alt="cmake_test_structure"/>
+<img src="https://i.imgur.com/Z6zi5ep.png" width = "500" height = "300" alt=""/>
 
-</center>center>
+</center>
 
 <br>
 <br>
 
 <center>
     
-<img src="https://i.imgur.com/owkrjTn.png" width = "600" height = "260" alt="cmake_test_structure"/>
+<img src="https://i.imgur.com/owkrjTn.png" width = "600" height = "260" alt=""/>
 
-</center>center>
+</center>
 
 <br>
 
 <p><strong>最後特別注意，防火牆的兩個選項都要打開，後面才能夠透過外部 IP 連進我們的 Server</strong>，到這邊為止我們已經成功建立好 VM 了。</p>
 <center>
     
-<img src="https://i.imgur.com/rg2ZSct.png" width = "500" height = "160" alt="cmake_test_structure"/>
+<img src="https://i.imgur.com/rg2ZSct.png" width = "500" height = "160" alt="防火牆設定選項"/>
 
 </center>
 
@@ -177,7 +177,7 @@
 <p>VM 默認的幾個序列埠都有使用對象，若有新的連線需求需要自己新增。打開防火牆設定 -&gt; 建立防火牆規則，來源選擇 <code>IPV4</code>，序列埠選擇 <code>TCP</code> 並打上自己的埠碼(這裡使用 8080 為例)。</p>
 <center>
     
-<img src="https://i.imgur.com/BddPdhd.png" width = "700" height = "500" alt="cmake_test_structure"/>
+<img src="https://i.imgur.com/BddPdhd.png" width = "700" height = "500" alt=""/>
 
 </center>
 
@@ -186,7 +186,7 @@
 
 <center>
     
-<img src="https://i.imgur.com/uQQwWN7.png" width = "500" height = "500" alt="cmake_test_structure"/>
+<img src="https://i.imgur.com/uQQwWN7.png" width = "500" height = "500" alt=""/>
 
 </center>
 
@@ -194,7 +194,7 @@
 <p>接著我們需要一個靜止 IP 才能夠從外部設備連進我們的 VM，前往網路設定 -&gt; 保留外部靜止位址，並將剛建立好的 VM 連接到 此靜止 IP 上。(注意 IP 區域需與 VM 區域一致才連接的到)</p>
 <center>
     
-<img src="https://i.imgur.com/QaWMLw1.png" width = "500" height = "135" alt="cmake_test_structure"/>
+<img src="https://i.imgur.com/QaWMLw1.png" width = "500" height = "135" alt=""/>
 
 </center>
 
@@ -203,7 +203,7 @@
 
 <center>
     
-<img src="https://i.imgur.com/IxX1u5n.png" width = "400" height = "550" alt="cmake_test_structure"/>
+<img src="https://i.imgur.com/IxX1u5n.png" width = "400" height = "550" alt=""/>
 
 </center>
 
@@ -211,7 +211,7 @@
 <h2 id="在-GCP-上架設-Coder-Server-並貼入寫好的文章"><a href="#在-GCP-上架設-Coder-Server-並貼入寫好的文章" class="headerlink" title="在 GCP 上架設 Coder-Server 並貼入寫好的文章"></a>在 GCP 上架設 Coder-Server 並貼入寫好的文章</h2><p>回到 VM 檢視頁面，點選剛建立好的 VM 並選擇透過 SSH 連線:</p>
 <center>
     
-<img src="https://i.imgur.com/bgd1H9A.png" width = "350" height = "150" alt="cmake_test_structure"/>
+<img src="https://i.imgur.com/bgd1H9A.png" width = "350" height = "150" alt=""/>
 
 </center>
 
@@ -230,7 +230,7 @@ sudo vim cnofig.yaml
 <p>在 <code>vim</code> 畫面中，按下 <code>i</code> 開始修改密碼，修改完後按下 <code>ESC</code> 退出編輯，在按下 <code>:wq</code> 保存變更設定。</p>
 <center>
     
-<img src="https://i.imgur.com/1eT71zY.jpg" width = "300" height = "100" alt="cmake_test_structure"/>
+<img src="https://i.imgur.com/1eT71zY.jpg" width = "300" height = "100" alt=""/>
 
 </center>
 
@@ -245,7 +245,7 @@ sudo code-server --port 8080 --host 0.0.0.0 &amp;
 <p>若建立成功，即可回到一般瀏覽器頁面，在網址輸入: <code>http://&#123;your_ip&#125;:8080</code>，並輸入剛設定好的密碼，沒問題的話就可以看到以下頁面，代表 <code>Code-Server</code> 已架設完成。</p>
 <center>
     
-<img src="https://i.imgur.com/dvVdSfI.jpg" width = "450" height = "350" alt="cmake_test_structure"/>
+<img src="https://i.imgur.com/dvVdSfI.jpg" width = "450" height = "350" alt=""/>
 
 </center>
 
@@ -276,7 +276,7 @@ hexo
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://austin9109.github.io/2022/05/08/20220508_blog_env_setup/" data-id="cl2zfs9p50000q0r5gf9bbg1t" data-title="" class="article-share-link">Share</a>
+      <a data-url="https://austin9109.github.io/2022/05/08/20220508_blog_env_setup/" data-id="cl2zfyvzr0000ycr5c5f2gfzc" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -315,7 +315,7 @@ hexo
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://austin9109.github.io/2022/04/10/my-second-post/" data-id="cl2zfs9pu0002q0r51mj07mr9" data-title="my second post" class="article-share-link">Share</a>
+      <a data-url="https://austin9109.github.io/2022/04/10/my-second-post/" data-id="cl2zfyw0n0003ycr51ya138wr" data-title="my second post" class="article-share-link">Share</a>
       
       
       
@@ -346,7 +346,7 @@ hexo
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://austin9109.github.io/2022/04/10/My-first-post/" data-id="cl2zfs9ps0001q0r5dmui9mbb" data-title="" class="article-share-link">Share</a>
+      <a data-url="https://austin9109.github.io/2022/04/10/My-first-post/" data-id="cl2zfyw0k0001ycr58eo4dsm7" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -397,7 +397,7 @@ hexo
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://austin9109.github.io/2022/04/10/hello-world/" data-id="cl2zfs9pv0003q0r54d243un6" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="https://austin9109.github.io/2022/04/10/hello-world/" data-id="cl2zfyw0m0002ycr57pba9u6c" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
